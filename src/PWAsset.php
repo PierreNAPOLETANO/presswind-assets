@@ -20,11 +20,9 @@ class PWAsset
     public static function add($handle, $src): CSSAsset|JSAsset
     {
         try {
-            if (self::is_css($src)) {
-                return new CSSAsset($handle, $src);
-            } else {
-                return new JSAsset($handle, $src);
-            }
+            return self::is_css($src)
+                ? new CSSAsset($handle, $src)
+                : new JSAsset($handle, $src);
         } catch (\Exception $e) {
             throw new \Exception($e->getMessage());
         }

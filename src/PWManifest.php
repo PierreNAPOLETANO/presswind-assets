@@ -18,8 +18,10 @@ class PWManifest
     false): array|object
     {
         $self = new self();
+
         // add trailing slash if not exist
         $path = str_ends_with($path, '/') ? $path : $path . '/';
+        
         if ($withObject) {
             return [
                 'manifest' => $self->get_file($path, $is_plugin),
